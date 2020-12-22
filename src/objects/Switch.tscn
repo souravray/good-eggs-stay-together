@@ -7,7 +7,7 @@
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 21.3333, 19.2 )
 
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id=2]
 resource_name = "First"
 length = 1.7
 tracks/0/type = "value"
@@ -49,8 +49,7 @@ tracks/2/keys = {
 "values": [ false ]
 }
 
-[sub_resource type="Animation" id=2]
-resource_name = "Off"
+[sub_resource type="Animation" id=3]
 length = 0.7
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
@@ -83,8 +82,7 @@ tracks/1/keys = {
 "times": PoolRealArray( 0, 0.001 )
 }
 
-[sub_resource type="Animation" id=3]
-resource_name = "On"
+[sub_resource type="Animation" id=4]
 length = 0.6
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
@@ -131,12 +129,13 @@ scale = Vector2( 1.5, 1.25 )
 shape = SubResource( 1 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-autoplay = "First"
-anims/First = SubResource( 4 )
-anims/Off = SubResource( 2 )
-anims/On = SubResource( 3 )
+anims/First = SubResource( 2 )
+anims/Off = SubResource( 3 )
+anims/On = SubResource( 4 )
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 3 )
+
+[node name="Timer" type="Timer" parent="."]
 [connection signal="body_entered" from="." to="." method="_on_Switch_body_entered"]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]

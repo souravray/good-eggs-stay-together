@@ -16,6 +16,7 @@ var players
 func _ready():
 	players = [floaty, hardy, bouncy]
 	start_timer.start()
+	$Tips.show_tips(2)
 	
 
 
@@ -31,8 +32,8 @@ func playerSelection():
 		players[currentPlayer].select(false)
 	# select new player 
 	currentPlayer = currentPlayer+1 if currentPlayer+1 < players.size() else 0
-	print("Player", currentPlayer)
 	players[currentPlayer].select(true)
+	$Control.show_card(players[currentPlayer].get_name())
 
 
 func _on_GameStartTimer_timeout():

@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://src/actors/Hardy.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/levels/level-2.gd" type="Script" id=2]
@@ -10,6 +10,9 @@
 [ext_resource path="res://src/objects/knife.tscn" type="PackedScene" id=8]
 [ext_resource path="res://src/objects/Switch.tscn" type="PackedScene" id=9]
 [ext_resource path="res://src/materials/boilling.tscn" type="PackedScene" id=10]
+[ext_resource path="res://src/levels/level-3.tscn" type="PackedScene" id=11]
+[ext_resource path="res://src/screens/Tips.tscn" type="PackedScene" id=12]
+[ext_resource path="res://src/screens/Card.tscn" type="PackedScene" id=13]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 245.963, 22.3052 )
@@ -75,11 +78,20 @@ position = Vector2( 321.636, 386.12 )
 speed = Vector2( 180, 260 )
 max_x = 220.0
 
+[node name="Tips" parent="." instance=ExtResource( 12 )]
+
+[node name="Control" parent="." instance=ExtResource( 13 )]
+margin_left = 574.693
+margin_top = 44.0435
+margin_right = 774.693
+margin_bottom = 108.044
+
 [node name="GameStartTimer" type="Timer" parent="."]
 wait_time = 1.75
 
 [node name="Portal" parent="." instance=ExtResource( 4 )]
 position = Vector2( 995.454, 455.685 )
+next_sceen = ExtResource( 11 )
 [connection signal="swich_state" from="Switch" to="." method="_on_Switch_swich_state"]
 [connection signal="dead" from="Knife" to="." method="_on_Knife_dead"]
 [connection signal="dead" from="Knife2" to="." method="_on_Knife_dead"]

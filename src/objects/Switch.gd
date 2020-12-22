@@ -1,5 +1,6 @@
 extends Area2D
 var state = true 
+export var offset = 1.0
 signal swich_state
 # Declare member variables here. Examples:
 # var a = 2
@@ -8,7 +9,11 @@ signal swich_state
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	$Timer.wait_time = offset
+	$Timer.start()
+	yield($Timer, "timeout")
+	$Timer.stop()
+	$AnimationPlayer.play("Off")
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

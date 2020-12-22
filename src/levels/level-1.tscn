@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://src/levels/level-1.gd" type="Script" id=1]
 [ext_resource path="res://src/actors/Bouncy.tscn" type="PackedScene" id=2]
@@ -10,6 +10,8 @@
 [ext_resource path="res://src/objects/Switch.tscn" type="PackedScene" id=8]
 [ext_resource path="res://src/objects/portal.tscn" type="PackedScene" id=9]
 [ext_resource path="res://src/levels/level-2.tscn" type="PackedScene" id=10]
+[ext_resource path="res://src/screens/Tips.tscn" type="PackedScene" id=11]
+[ext_resource path="res://src/screens/Card.tscn" type="PackedScene" id=12]
 
 [node name="Level1" type="Node2D"]
 script = ExtResource( 1 )
@@ -49,12 +51,22 @@ position = Vector2( 236.493, 366.479 )
 speed = Vector2( 180, 260 )
 max_x = 220.0
 
+[node name="Tips" parent="." instance=ExtResource( 11 )]
+
 [node name="GameStartTimer" type="Timer" parent="."]
 wait_time = 1.75
 
 [node name="Portal" parent="." instance=ExtResource( 9 )]
 position = Vector2( 996.916, 329.656 )
 next_sceen = ExtResource( 10 )
+
+[node name="Control" parent="." instance=ExtResource( 12 )]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = 561.513
+margin_top = 29.8255
+margin_right = 761.513
+margin_bottom = 93.8255
 [connection signal="swich_state" from="Switch" to="." method="_on_Switch_swich_state"]
 [connection signal="dead" from="Knife" to="." method="_on_Knife_dead"]
 [connection signal="game_over" from="Floaty" to="." method="_on_Floaty_game_over"]

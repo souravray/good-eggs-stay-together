@@ -32,11 +32,16 @@ func playerSelection():
 	# select new player 
 	currentPlayer = currentPlayer+1 if currentPlayer+1 < players.size() else 0
 	players[currentPlayer].select(true)
+	$Control.show_card(players[currentPlayer].get_name())
 
 
 func _on_GameStartTimer_timeout():
 	start_timer.stop()
 	playerSelection()
+	if self.get_name() == "Level2":
+		$Tips.show_tips(3)
+	elif self.get_name() == "Level3":
+		$Tips.show_tips(4)
 
 
 func _on_Portal_playes_at_base(players: Array):
@@ -54,6 +59,12 @@ func _on_Switch_swich_state(state):
 		$Knife.rotate_up()
 		$Knife2.rotate_up()
 
+func _on_Switch2_swich_state(state):
+	if state :
+		$Knife3.rotate_down()
+		$Knife2.rotate_down()
+	else:
+		$Knife3.rotate_up()
 
 func _on_Knife_dead(player):
 	currentPlayer = -1
@@ -78,3 +89,6 @@ func _on_Area2D_body_shape_entered(body_id, body, body_shape, area_shape):
 		currentPlayer = -1
 		var _player = get_node(body.get_name())
 		_player.die()
+
+
+
