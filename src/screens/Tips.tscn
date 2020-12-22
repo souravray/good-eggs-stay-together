@@ -1,0 +1,179 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://assets/Font/new_theme.tres" type="Theme" id=1]
+[ext_resource path="res://src/screens/Tips.gd" type="Script" id=2]
+
+[sub_resource type="Animation" id=2]
+resource_name = "Hide"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/path = NodePath("CanvasLayer/ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0.0980392, 0.0862745, 0.0862745, 0.211765 ), Color( 0.0980392, 0.0862745, 0.0862745, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("CanvasLayer/ColorRect:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("CanvasLayer/ColorRect2:color")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0.0980392, 0.0862745, 0.0862745, 0.682353 ), Color( 0.0980392, 0.0862745, 0.0862745, 0.054902 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("CanvasLayer/ColorRect2:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("CanvasLayer/ColorRect2/RichTextLabel:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 4 ),
+"update": 1,
+"values": [ false ]
+}
+
+[sub_resource type="Animation" id=1]
+resource_name = "Show"
+length = 2.6
+tracks/0/type = "value"
+tracks/0/path = NodePath("CanvasLayer/ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0.0980392, 0.0862745, 0.0862745, 0 ), Color( 0.0980392, 0.0862745, 0.0862745, 0.211765 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("CanvasLayer/ColorRect:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("CanvasLayer/ColorRect2:color")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0.0980392, 0.0862745, 0.0862745, 0.054902 ), Color( 0.0980392, 0.0862745, 0.0862745, 0.682353 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("CanvasLayer/ColorRect2:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("CanvasLayer/ColorRect2/RichTextLabel:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 4, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+
+[node name="Tips" type="Node2D"]
+z_index = 1228
+z_as_relative = false
+script = ExtResource( 2 )
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+visible = false
+margin_right = 1288.0
+margin_bottom = 808.0
+color = Color( 0.0980392, 0.0862745, 0.0862745, 0 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect2" type="ColorRect" parent="CanvasLayer"]
+visible = false
+margin_left = 224.0
+margin_top = 240.0
+margin_right = 1080.0
+margin_bottom = 560.0
+color = Color( 0.0980392, 0.0862745, 0.0862745, 0.054902 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/ColorRect2"]
+visible = false
+anchor_right = 0.14
+anchor_bottom = 0.179
+margin_left = 30.0
+margin_top = 48.0
+margin_right = 710.16
+margin_bottom = 271.904
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource( 1 )
+fit_content_height = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/Hide = SubResource( 2 )
+anims/Show = SubResource( 1 )
